@@ -14,7 +14,7 @@
                                 alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{$trainer->name}}</h5>
-                            <p class="card-text">{{$trainer->descripcion}}</p>
+                            <p class="card-text">{{$trainer->description}}</p>
                             <a href="/trainers/{{$trainer->slug}}" class="btn btn-primary">Continua.....</a>
                         </div>
                     </div>

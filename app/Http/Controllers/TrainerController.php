@@ -13,8 +13,10 @@ class TrainerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin']);
+
         $trainers = Trainer::all();
 
         return view ('trainers.index', compact('trainers'));
@@ -47,7 +49,7 @@ class TrainerController extends Controller
        }
         
         $trainer->name = $request->input('name');
-        $trainer->descripcion = $request->input('descripcion');
+        $trainer->description = $request->input('description');
         $trainer->slug = $request->input('slug');
         $trainer->avatar = $name;
         $trainer->save();

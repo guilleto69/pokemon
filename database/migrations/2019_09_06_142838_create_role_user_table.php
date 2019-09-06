@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSlugToTrainers extends Migration
+class CreateRoleUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddSlugToTrainers extends Migration
      */
     public function up()
     {
-        Schema::table('trainers', function (Blueprint $table) {
-            $table->string('slug')->unique();
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('role_id')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddSlugToTrainers extends Migration
      */
     public function down()
     {
-        Schema::table('trainers', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
+        Schema::dropIfExists('role_user');
     }
 }

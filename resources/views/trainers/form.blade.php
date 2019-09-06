@@ -14,8 +14,8 @@
     </div>
 
     <div class="form-group">
-            {!! Form::label('descripcion', 'Descripcion: ')!!}
-            {!! Form::text('descripcion', null, ['class'=>'form-control'])!!}
+            {!! Form::label('description', 'Descripcion: ')!!}
+            {!! Form::text('description', null, ['class'=>'form-control'])!!}
     </div>
 
     {{-- @csrf
